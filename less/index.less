@@ -4,56 +4,300 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
 }
-ol, ul {
-	list-style: none;
+ol,
+ul {
+  list-style: none;
 }
-blockquote, q {
-	quotes: none;
+blockquote,
+q {
+  quotes: none;
 }
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
+html {
+  font-family: "Titillium Web", sans-serif;
 }
 
+@default-color: maroon;
+
+.content-color {
+  background-color: lightgrey;
+  color: @default-color;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.border {
+  border-radius: 10px;
+  border: 1px dotted black;
+}
+
+html,
+body {
+  height: 100%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+.container {
+  nav {
+    .flex;
+    background-color: lightgrey;
+    margin-bottom: 30px;
+    .border;
+
+    a {
+      text-decoration: none;
+      margin: 20px;
+      color: black;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: blue;
+    }
+  }
+
+  .header {
+    width: 100%;
+    .flex-evenly;
+    max-height: 800px;
+    .content-color;
+    a {
+      text-decoration: none;
+      color: @default-color;
+    }
+    a:hover {
+      color: blue;
+    }
+
+    .header-content {
+      .flex;
+      flex-direction: column;
+      margin: auto;
+
+      h1,
+      h2 {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+    }
+
+    .header-image {
+      height: 40%;
+
+      .flex;
+
+      img {
+        max-width: 80%;
+        max-height: 400px;
+        padding: 10px;
+      }
+    }
+  }
+
+  .main-content {
+    .border;
+    .flex-evenly;
+    margin-top: 20px;
+    align-content: center;
+    .content-color;
+
+    .skills {
+      .flex;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      margin: 20px;
+      font-size: 20px;
+    }
+
+    .bio {
+      max-width: 500px;
+
+      p {
+        margin: 10px;
+        padding: 10px;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .job-history {
+    width: 100%;
+    .job {
+      .flex-evenly;
+      align-items: center;
+
+      margin-top: 30px;
+      margin-bottom: 30px;
+      background-color: lightgrey;
+      color: @default-color;
+      min-height: 150px;
+      .border;
+      h1 {
+        font-size: 26px;
+        align-self: center;
+      }
+    }
+    .job-content {
+      p {
+        font-size: 16px;
+        margin: 10px;
+      }
+    }
+  }
+
+  .job-header {
+    width: 100%;
+    .flex;
+    margin-top: 40px;
+    h1 {
+      font-size: 40px;
+
+      color: @default-color;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .job {
+      flex-direction: column;
+      padding: 40px;
+    }
+
+    .main-content {
+      flex-direction: column;
+    }
+  }
+}
